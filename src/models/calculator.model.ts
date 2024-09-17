@@ -23,7 +23,7 @@ export class CalculatorModel implements ICalculatorModel {
   }
 
   public display(): string {
-    return this._buffer;
+    return '';
   }
 
 }
