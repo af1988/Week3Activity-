@@ -13,3 +13,16 @@ describe('CalculatorModel', (): void => {
   });
 
 });
+
+it('should have an empty display on init', (): void => {
+
+  // Assemble
+  const calculator: ICalculatorModel = new CalculatorModel();
+
+  // Act
+  const displayValue: string = calculator.display();
+
+  // Assert
+  expect(displayValue).toEqual('');
+
+});
