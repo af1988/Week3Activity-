@@ -9,9 +9,7 @@ export class CalculatorModel implements ICalculatorModel {
   private _buffer: string = '';
 
   public pressNumericKey(key: NumericKeys): void {
-    if (key === NumericKeys.ONE) {
-      this._buffer = '1';
-    }
+    this._buffer = key;
   }
 
   public pressOperatorKey(key: OperatorKeys): void {
@@ -23,7 +21,7 @@ export class CalculatorModel implements ICalculatorModel {
   }
 
   public display(): string {
-    return '';
+    return this._buffer;
   }
 
 }
