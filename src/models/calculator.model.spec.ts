@@ -71,8 +71,8 @@ describe('CalculatorModel', (): void => {
     calculator.pressNumericKey(NumericKeys.TWO);
     calculator.pressOperatorKey(OperatorKeys.PLUS);
     calculator.pressNumericKey(NumericKeys.THREE);
-    //calculator.pressOperatorKey(OperatorKeys.MINUS);
-    //calculator.pressNumericKey(NumericKeys.ONE);
+    calculator.pressOperatorKey(OperatorKeys.MINUS);
+    calculator.pressNumericKey(NumericKeys.ONE);
     calculator.pressActionKey(ActionKeys.EQUALS);
     const displayValue: string = calculator.display();
     expect(displayValue).toEqual('5');
