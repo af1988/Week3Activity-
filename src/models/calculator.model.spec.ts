@@ -1,6 +1,8 @@
 import { CalculatorModel } from './calculator.model';
 import { ICalculatorModel } from '../interfaces/calculator-model.interface';
 import { NumericKeys } from '../enums/numeric-keys.enum';
+import { OperatorKeys } from '../enums/operator-keys.enum';
+import { ActionKeys } from '../enums/action-keys.enum';
 
 describe('CalculatorModel', (): void => {
 
@@ -44,6 +46,36 @@ describe('CalculatorModel', (): void => {
 
     expect(displayValue).toEqual('2');
 
+  });
+
+  it('should display `98` when the `9` key is pressed followed by the `8` key', (): void => {
+
+    calculator.pressNumericKey(NumericKeys.NINE);
+    calculator.pressNumericKey(NumericKeys.EIGHT);
+    const displayValue: string = calculator.display();
+  
+    expect(displayValue).toEqual('98');
+  
+  });
+
+  it('should display `2 + 3 = 5` for addition', (): void => {
+    calculator.pressNumericKey(NumericKeys.TWO);
+    calculator.pressOperatorKey(OperatorKeys.PLUS);
+    calculator.pressNumericKey(NumericKeys.THREE);
+    calculator.pressActionKey(ActionKeys.EQUALS);
+    const displayValue: string = calculator.display();
+    expect(displayValue).toEqual('5');
+  });
+
+  it('should display `2 + 3 - 1 = 4` for multiple operations', (): void => {
+    calculator.pressNumericKey(NumericKeys.TWO);
+    calculator.pressOperatorKey(OperatorKeys.PLUS);
+    calculator.pressNumericKey(NumericKeys.THREE);
+    //calculator.pressOperatorKey(OperatorKeys.MINUS);
+    //calculator.pressNumericKey(NumericKeys.ONE);
+    calculator.pressActionKey(ActionKeys.EQUALS);
+    const displayValue: string = calculator.display();
+    expect(displayValue).toEqual('5');
   });
 
 });
